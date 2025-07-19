@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HidiffyProxy.View.SettingsView"
+             Title="Настройки">
+    <ScrollView>
+        <VerticalStackLayout Padding="20,40,20,20" Spacing="24">
+
+
+            <!-- Основные -->
+            <Label Text="Основные" TextColor="{DynamicResource TextColor}" FontSize="16" Margin="0,0,0,8"/>
+            <Grid ColumnDefinitions="Auto,*,Auto" RowSpacing="20">
+                <!-- Язык -->
+                <Image Source="language.svg" HeightRequest="32" WidthRequest="32" VerticalOptions="Center" HorizontalOptions="Start"/>
+                <StackLayout Grid.Column="1" Spacing="0">
+                    <Label Text="Язык" TextColor="{DynamicResource TextColor}" FontSize="18"/>
+                    <Picker ItemsSource="{Binding LanguageOptions}" SelectedItem="{Binding SelectedLanguage, Mode=TwoWay}" TextColor="{DynamicResource TextColor}" WidthRequest="140" HorizontalOptions="Start"/>
+                </StackLayout>
+            </Grid>
+            <Grid ColumnDefinitions="Auto,*,Auto" RowSpacing="20">
+                <!-- Оформление -->
+                <Image Source="theme.svg" HeightRequest="32" WidthRequest="32" VerticalOptions="Center" HorizontalOptions="Start"/>
+                <StackLayout Grid.Column="1" Spacing="0">
+                    <Label Text="Оформление" TextColor="{DynamicResource TextColor}" FontSize="18"/>
+                    <Picker ItemsSource="{Binding ThemeOptions}" SelectedItem="{Binding SelectedTheme, Mode=TwoWay}" TextColor="{DynamicResource TextColor}" WidthRequest="140" HorizontalOptions="Start"/>
+                </StackLayout>
+            </Grid>
+            <Grid ColumnDefinitions="Auto,*,Auto" RowSpacing="20">
+                <!-- Сбор аналитики -->
+                <Image Source="collecting_analytics.svg" HeightRequest="32" WidthRequest="32" VerticalOptions="Center" HorizontalOptions="Start"/>
+                <StackLayout Grid.Column="1" Spacing="0">
+                    <Label Text="Сбор аналитики" TextColor="{DynamicResource TextColor}" FontSize="18"/>
+                    <Label Text="Сбор данных аналитики и отправка отчётов о сбоях для улучшения приложения" TextColor="{DynamicResource TextColor}" FontSize="14"/>
+                </StackLayout>
+                <Switch Grid.Column="2" IsToggled="True" OnColor="#2A3A5F"/>
+            </Grid>
+            <Grid ColumnDefinitions="Auto,*,Auto" RowSpacing="20">
+                <!-- Автоматически проверять IP-адрес -->
+                <Image Source="check_ip_connection.svg" HeightRequest="32" WidthRequest="32" VerticalOptions="Center" HorizontalOptions="Start"/>
+                <Label Grid.Column="1" Text="Автоматически проверять IP-адрес соединения" TextColor="{DynamicResource TextColor}" FontSize="18"/>
+                <Switch Grid.Column="2" IsToggled="True" OnColor="#2A3A5F"/>
+            </Grid>
+            <Grid ColumnDefinitions="Auto,*,Auto" RowSpacing="20">
+                <!-- Отображение скорости -->
+                <Image Source="readiness_score.svg" HeightRequest="32" WidthRequest="32" VerticalOptions="Center" HorizontalOptions="Start"/>
+                <Label Grid.Column="1" Text="Отображение скорости в уведомлении" TextColor="{DynamicResource TextColor}" FontSize="18"/>
+                <Switch Grid.Column="2" IsToggled="True" OnColor="#2A3A5F"/>
+            </Grid>
+            <Grid ColumnDefinitions="Auto,*,Auto" RowSpacing="20">
+                <!-- Тактильная обратная связь -->
+                <Image Source="mobile_vibrate.png" HeightRequest="32" WidthRequest="32" VerticalOptions="Center" HorizontalOptions="Start"/>
+                <Label Grid.Column="1" Text="Тактильная обратная связь" TextColor="{DynamicResource TextColor}" FontSize="18"/>
+                <Switch Grid.Column="2" IsToggled="True" OnColor="#2A3A5F"/>
+            </Grid>
+            <Grid ColumnDefinitions="Auto,*,Auto" RowSpacing="20">
+                <!-- Отключить оптимизацию батареи -->
+                <Image Source="energy_off.svg" HeightRequest="32" WidthRequest="32" VerticalOptions="Center" HorizontalOptions="Start"/>
+                <StackLayout Grid.Column="1" Spacing="0">
+                    <Label Text="Отключить оптимизацию батареи" TextColor="{DynamicResource TextColor}" FontSize="18"/>
+                    <Label Text="Отключение ограничений для оптимальной производительности VPN." TextColor="#C0C0C0" FontSize="14"/>
+                </StackLayout>
+            </Grid>
+
+            <!-- Разделитель -->
+            <BoxView HeightRequest="1" Color="#393646" Margin="0,20,0,0"/>
+
+            <!-- Расширенные -->
+            <Label Text="Расширенные" TextColor="{DynamicResource TextColor}" FontSize="16" Margin="0,20,0,8"/>
+            <Grid ColumnDefinitions="Auto,*,Auto" RowSpacing="20">
+                <!-- Раздельное проксирование -->
+                <Image Source="icon_split.png" HeightRequest="32" WidthRequest="32" VerticalOptions="Center" HorizontalOptions="Start"/>
+                <Label Grid.Column="1" Text="Раздельное проксирование" TextColor="{DynamicResource TextColor}" FontSize="18"/>
+                <Switch Grid.Column="2" IsToggled="False" OnColor="#2A3A5F"/>
+            </Grid>
+            <Grid ColumnDefinitions="Auto,*,Auto" RowSpacing="20">
+                <!-- Ограничение памяти -->
+                <Image Source="memory.svg" HeightRequest="32" WidthRequest="32" VerticalOptions="Center" HorizontalOptions="Start"/>
+                <StackLayout Grid.Column="1" Spacing="0">
+                    <Label Text="Ограничение памяти" TextColor="{DynamicResource TextColor}" FontSize="18"/>
+                    <Label Text="Включите, если у вас возникают ошибки нехватки памяти или частые сбои приложения." TextColor="{DynamicResource TextColor}" FontSize="14"/>
+                </StackLayout>
+                <Switch Grid.Column="2" IsToggled="True" OnColor="#2A3A5F"/>
+            </Grid>
+            <Grid ColumnDefinitions="Auto,*,Auto" RowSpacing="20">
+                <!-- Режим отладки -->
+                <Image Source="debug_mode.svg" HeightRequest="32" WidthRequest="32" VerticalOptions="Center" HorizontalOptions="Start"/>
+                <Label Grid.Column="1" Text="Режим отладки" TextColor="{DynamicResource TextColor}" FontSize="18"/>
+                <Switch Grid.Column="2" IsToggled="False" OnColor="#2A3A5F"/>
+            </Grid>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

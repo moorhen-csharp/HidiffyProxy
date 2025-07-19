@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="HidiffyProxy.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:HidiffyProxy"
+    xmlns:view="clr-namespace:HidiffyProxy.View"
+    Title="HidiffyProxy">
+
+    <ShellContent
+        Title="Добавить провиль"
+        ContentTemplate="{DataTemplate view:MainView}"
+        Route="MainPage" />
+    <ShellContent
+        Title="Параметры конфигурации"
+        ContentTemplate="{DataTemplate view:ConfigView}"
+        Route="ConfigView" />
+    <ShellContent
+        Title="Настройки"
+        ContentTemplate="{DataTemplate view:SettingsView}"
+        Route="SettingsView" />
+    <ShellContent
+        Title="Журналы"
+        ContentTemplate="{DataTemplate view:JournalView}"
+        Route="JournalView" />
+    <ShellContent
+        Title="О программе"
+        ContentTemplate="{DataTemplate view:AboutView}"
+        Route="AboutView" />
+</Shell>

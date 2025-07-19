@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HidiffyProxy.View.NewProfileModal"
+             IsVisible="{Binding IsModalVisible, Mode=TwoWay}">
+
+    <Grid VerticalOptions="Center" HorizontalOptions="Center">
+        <Border BackgroundColor="{DynamicResource ModalBackgroundColor}"
+                Padding="14">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="20" />
+            </Border.StrokeShape>
+            <VerticalStackLayout Spacing="10">
+                <Grid ColumnDefinitions="*,*">
+                    <Border Grid.Column="0"
+                            BackgroundColor="{DynamicResource ButtonBackgroundColor}"
+                            WidthRequest="150" HeightRequest="150" Margin="10">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="20" />
+                        </Border.StrokeShape>
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnScanQrTapped"/>
+                        </Border.GestureRecognizers>
+                        <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="8">
+                            <Image Source="copy.svg"  HeightRequest="48" WidthRequest="48" HorizontalOptions="Center"/>
+                            <Label Text="Добавить из буфера обмена" TextColor="{DynamicResource TextModalColor}" FontSize="16" HorizontalTextAlignment="Center"/>
+                        </VerticalStackLayout>
+                    </Border>
+                    <Border Grid.Column="1"
+                            BackgroundColor="{DynamicResource ButtonBackgroundColor}"
+                            WidthRequest="150" HeightRequest="150" Margin="10">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="20" />
+                        </Border.StrokeShape>
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnScanQrTapped"/>
+                        </Border.GestureRecognizers>
+                        <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="8">
+                            <Image Source="qr_code.svg"  HeightRequest="48" WidthRequest="48" HorizontalOptions="Center"/>
+                            <Label Text="Сканировать QR-код" TextColor="{DynamicResource TextModalColor}" FontSize="16" HorizontalTextAlignment="Center"/>
+                        </VerticalStackLayout>
+                    </Border>
+                </Grid>
+                <Button Text="Добавить деформацию"
+                        Background="{DynamicResource ButtonBackgroundColor}"
+                        TextColor="{DynamicResource TextModalColor}"/>
+                <Button Text="Ввести вручную"
+                        Background="{DynamicResource ButtonBackgroundColor}"
+                        TextColor="{DynamicResource TextModalColor}"/>
+                <Button Text="Закрыть"
+                        Clicked="OnCloseClicked"
+                        Background="{DynamicResource ButtonBackgroundColor}"
+                        TextColor="{DynamicResource TextModalColor}"/>
+            </VerticalStackLayout>
+        </Border>
+    </Grid>
+</ContentView>

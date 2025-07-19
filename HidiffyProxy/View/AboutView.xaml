@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HidiffyProxy.View.AboutView"
+             Title="О программе">
+    <VerticalStackLayout Padding="20,40,20,20" Spacing="32">
+
+
+
+        <!-- Логотип и название -->
+        <Grid ColumnDefinitions="Auto,*" Padding="0,0,0,20">
+            <Image Source="tray_icon.png" HeightRequest="64" WidthRequest="64" VerticalOptions="Center"/>
+            <StackLayout Grid.Column="1" VerticalOptions="Center" Spacing="2" Margin="16,0,0,0">
+                <Label Text="Hiddify" TextColor="{DynamicResource TextColor}" FontSize="24" FontAttributes="Bold"/>
+                <Label Text="Версия 2.1.5" TextColor="{DynamicResource TextColor}" FontSize="14"/>
+            </StackLayout>
+        </Grid>
+
+        <!-- Ссылки -->
+        <VerticalStackLayout Spacing="24">
+            <Grid ColumnDefinitions="*,Auto">
+                <Label Text="Исходный код" TextColor="{DynamicResource TextColor}" FontSize="18" VerticalOptions="Center"/>
+                <ImageButton Source="open_in_new.svg" BackgroundColor="Transparent" HeightRequest="28" WidthRequest="28" Grid.Column="1"/>
+            </Grid>
+            <Grid ColumnDefinitions="*,Auto">
+                <Label Text="Telegram-канал" TextColor="{DynamicResource TextColor}" FontSize="18" VerticalOptions="Center"/>
+                <ImageButton Source="open_in_new.svg" BackgroundColor="Transparent" HeightRequest="28" WidthRequest="28" Grid.Column="1"/>
+            </Grid>
+            <Grid ColumnDefinitions="*,Auto">
+                <Label Text="Условия и положения" TextColor="{DynamicResource TextColor}" FontSize="18" VerticalOptions="Center"/>
+                <ImageButton Source="open_in_new.svg" BackgroundColor="Transparent" HeightRequest="28" WidthRequest="28" Grid.Column="1"/>
+            </Grid>
+            <Grid ColumnDefinitions="*,Auto">
+                <Label Text="Политика конфиденциальности" TextColor="{DynamicResource TextColor}" FontSize="18" VerticalOptions="Center"/>
+                <ImageButton Source="open_in_new.svg" BackgroundColor="Transparent" HeightRequest="28" WidthRequest="28" Grid.Column="1"/>
+            </Grid>
+        </VerticalStackLayout>
+    </VerticalStackLayout>
+</ContentPage>
