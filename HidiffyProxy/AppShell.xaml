@@ -5,7 +5,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:HidiffyProxy"
     xmlns:view="clr-namespace:HidiffyProxy.View"
-    Title="HidiffyProxy">
+    Title="HidiffyProxy"
+    FlyoutBehavior="Flyout">
 
     <ShellContent
         Title="Добавить провиль"
