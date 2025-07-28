@@ -8,6 +8,7 @@
     Title="HidiffyProxy"
     FlyoutBehavior="Flyout">
 
+    <ShellContent Route="IntroView" ContentTemplate="{DataTemplate view:IntroView}" />
     <ShellContent
         Title="Добавить провиль"
         ContentTemplate="{DataTemplate view:MainView}"

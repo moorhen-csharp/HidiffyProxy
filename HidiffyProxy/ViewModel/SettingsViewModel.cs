@@ -1,6 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using HidiffyProxy.Base;
 using HidiffyProxy.Service;
 using System.Collections.ObjectModel;
 using System.Windows.Input;

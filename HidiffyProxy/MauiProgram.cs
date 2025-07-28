@@ -34,6 +34,7 @@ namespace HidiffyProxy
             builder.Services.AddSingleton<AboutViewModel>();
             builder.Services.AddSingleton<JournalViewModel>();
             builder.Services.AddSingleton<MainViewModel>();
+            builder.Services.AddTransient<ViewModel.IntroViewModel>();
 
             // --- Views ---
             builder.Services.AddTransient<ConfigView>();

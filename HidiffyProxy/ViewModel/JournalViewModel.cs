@@ -1,4 +1,4 @@
-﻿using HidiffyProxy.Base;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace HidiffyProxy.ViewModel
 {
-    public class JournalViewModel : BaseViewModel
+    public partial class JournalViewModel : ObservableObject
     {
         public JournalViewModel() { }
     }

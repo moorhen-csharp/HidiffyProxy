@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HidiffyProxy.View.IntroView"
+             Title="Добро пожаловать">
+    <ScrollView>
+        <VerticalStackLayout Padding="20,40,20,20" Spacing="24">
+            <Image Source="main.svg" HeightRequest="120" WidthRequest="120" HorizontalOptions="Center"/>
+            <Label Text="Добро пожаловать!" FontSize="22" HorizontalOptions="Center" TextColor="{DynamicResource TextColor}"/>
+            <Label Text="Пожалуйста, выберите язык и регион, а также согласитесь с политикой конфиденциальности." FontSize="16" HorizontalOptions="Center" TextColor="{DynamicResource TextColor}"/>
+            <Picker Title="Язык" ItemsSource="{Binding LanguageOptions}" SelectedItem="{Binding SelectedLanguage, Mode=TwoWay}" TextColor="{DynamicResource TextColor}"/>
+            <Picker Title="Регион" ItemsSource="{Binding RegionOptions}" SelectedItem="{Binding SelectedRegion, Mode=TwoWay}" TextColor="{DynamicResource TextColor}"/>
+            <Grid ColumnDefinitions="*,Auto">
+                <Label Text="Сбор аналитики" TextColor="{DynamicResource TextColor}" FontSize="18" VerticalOptions="Center"/>
+                <Switch Grid.Column="1" IsToggled="{Binding AnalyticsEnabled, Mode=TwoWay}" OnColor="#2A3A5F"/>
+            </Grid>
+            <Label FontSize="14" TextColor="{DynamicResource TextColor}">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="Продолжая, вы соглашаетесь с "/>
+                        <Span Text="политикой конфиденциальности" TextDecorations="Underline" TextColor="#2A3A5F">
+                            <Span.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding PrivacyPolicyTap}" />
+                            </Span.GestureRecognizers>
+                        </Span>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+            <Button Text="Начать работу" Command="{Binding ContinueCommand}" BackgroundColor="#2A3A5F" TextColor="White"/>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage> 
