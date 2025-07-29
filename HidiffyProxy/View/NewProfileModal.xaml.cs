@@ -16,8 +16,23 @@ public partial class NewProfileModal : ContentView
     private async void OnScanQrTapped(object sender, EventArgs e)
     {
         if (this.Parent is Page page)
-            await page.DisplayAlert("Info", "кнопка", "OK");
+            await page.DisplayAlert("Info", "пїЅпїЅпїЅпїЅпїЅпїЅ", "OK");
         else if (Application.Current?.MainPage != null)
-            await Application.Current.MainPage.DisplayAlert("Info", "кнопка", "OK");
+            await Application.Current.MainPage.DisplayAlert("Info", "пїЅпїЅпїЅпїЅпїЅпїЅ", "OK");
+    }
+
+    private void OnAddProfileClicked(object sender, EventArgs e)
+    {
+        if (BindingContext is HidiffyProxy.ViewModel.MainViewModel vm && ProfileNameEntry != null)
+        {
+            var name = ProfileNameEntry.Text?.Trim();
+            if (!string.IsNullOrEmpty(name))
+            {
+                vm.AddProfileCommand.Execute(name);
+                ProfileNameEntry.Text = string.Empty;
+                vm.IsModalVisible = false;
+                this.IsVisible = false;
+            }
+        }
     }
 }

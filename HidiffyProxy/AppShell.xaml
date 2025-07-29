@@ -10,7 +10,7 @@
 
     <ShellContent Route="IntroView" ContentTemplate="{DataTemplate view:IntroView}" />
     <ShellContent
-        Title="Добавить провиль"
+        Title="Добавить профиль"
         ContentTemplate="{DataTemplate view:MainView}"
         Route="MainPage" />
     <ShellContent

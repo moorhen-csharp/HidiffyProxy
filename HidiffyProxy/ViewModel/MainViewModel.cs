@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
-using CommunityToolkit.Mvvm.ComponentModel;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using HidiffyProxy.Model;
 
@@ -102,6 +96,57 @@ namespace HidiffyProxy.ViewModel
         private void ShowFoodList()
         {
             IsSugarListVisible = false;
+        }
+
+        [RelayCommand]
+        public void AddProfile(string name)
+        {
+            var newProfile = new LocalProfile
+            {
+                Id = Guid.NewGuid().ToString(),
+                Name = name,
+                IsActive = Profiles.Count == 0 // Первый профиль сразу активный
+            };
+            if (newProfile.IsActive)
+                ActiveProfile = newProfile;
+            Profiles.Add(newProfile);
+            OnPropertyChanged(nameof(Profiles));
+            OnPropertyChanged(nameof(ActiveProfile));
+        }
+
+        [RelayCommand]
+        public void SetActiveProfile(Profile profile)
+        {
+            foreach (var p in Profiles)
+                p.IsActive = false;
+            profile.IsActive = true;
+            ActiveProfile = profile;
+            OnPropertyChanged(nameof(Profiles));
+            OnPropertyChanged(nameof(ActiveProfile));
+        }
+
+        [RelayCommand]
+        public void RemoveProfile(Profile profile)
+        {
+            Profiles.Remove(profile);
+            if (ActiveProfile == profile)
+                ActiveProfile = Profiles.FirstOrDefault();
+            OnPropertyChanged(nameof(Profiles));
+            OnPropertyChanged(nameof(ActiveProfile));
+        }
+
+        public void UpdateProfiles(IEnumerable<Profile> profiles)
+        {
+            Profiles = profiles.ToList();
+            ActiveProfile = Profiles.FirstOrDefault(p => p.IsActive) ?? Profiles.FirstOrDefault();
+            OnPropertyChanged(nameof(Profiles));
+            OnPropertyChanged(nameof(ActiveProfile));
+        }
+
+        [RelayCommand]
+        public void ShowProfileMenu()
+        {
+            Application.Current.MainPage.DisplayAlert("Меню профиля", "Здесь будет меню действий с профилем (редактировать, удалить и т.д.)", "OK");
         }
     }
 }

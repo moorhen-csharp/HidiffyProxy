@@ -41,12 +41,11 @@
                         </VerticalStackLayout>
                     </Border>
                 </Grid>
-                <Button Text="Добавить деформацию"
-                        Background="{DynamicResource ButtonBackgroundColor}"
-                        TextColor="{DynamicResource TextModalColor}"/>
+                <Entry x:Name="ProfileNameEntry" Placeholder="Введите имя профиля" BackgroundColor="{DynamicResource ButtonBackgroundColor}" TextColor="{DynamicResource TextModalColor}"/>
                 <Button Text="Ввести вручную"
                         Background="{DynamicResource ButtonBackgroundColor}"
-                        TextColor="{DynamicResource TextModalColor}"/>
+                        TextColor="{DynamicResource TextModalColor}"
+                        Clicked="OnAddProfileClicked"/>
                 <Button Text="Закрыть"
                         Clicked="OnCloseClicked"
                         Background="{DynamicResource ButtonBackgroundColor}"

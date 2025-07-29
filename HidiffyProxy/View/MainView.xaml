@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="HidiffyProxy.View.MainView"
              xmlns:view="clr-namespace:HidiffyProxy.View"
+             xmlns:local="clr-namespace:HidiffyProxy.UserControl"
              Title="Добавить профиль">
 
     <Grid BackgroundColor="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource OffBlack}}">
@@ -31,8 +32,9 @@
         <ImageButton Source="list_proxy.svg"  Command="{Binding ShowBottomSheetCommand}" Grid.Row="0" Grid.Column="4" WidthRequest="30" HeightRequest="30" VerticalOptions="Start"/>
 
         <StackLayout VerticalOptions="Center" HorizontalOptions="Center" Grid.Row="1" Grid.Column="0" Grid.RowSpan="9" Grid.ColumnSpan="6">
-            <Label Text="Начните с добавления профиля подписки" TextColor="{DynamicResource TextColor}" FontSize="16" HorizontalTextAlignment="Center" Padding="20"/>
-            <Button Text="+ Новый профиль" Command="{Binding ShowModalCommand}" TextColor="#A2C6FF" FontSize="18" BackgroundColor="Transparent" BorderColor="#A2C6FF" BorderWidth="1" CornerRadius="24" Padding="32,8" HorizontalOptions="Center"/>
+            <local:ActiveProfileCard IsVisible="{Binding ActiveProfile, Converter={StaticResource NullToBoolConverter}}" BindingContext="{Binding .}"/>
+            <Label Text="Начните с добавления профиля подписки" TextColor="{DynamicResource TextColor}" FontSize="16" HorizontalTextAlignment="Center" Padding="20" IsVisible="{Binding ActiveProfile, Converter={StaticResource NullToInvertedBoolConverter}}"/>
+            <Button Text="+ Новый профиль" Command="{Binding ShowModalCommand}" TextColor="#A2C6FF" FontSize="18" BackgroundColor="Transparent" BorderColor="#A2C6FF" BorderWidth="1" CornerRadius="24" Padding="32,8" HorizontalOptions="Center" IsVisible="{Binding ActiveProfile, Converter={StaticResource NullToInvertedBoolConverter}}"/>
         </StackLayout>
 
         <Grid Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="6" HeightRequest="40">
